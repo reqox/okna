@@ -1,0 +1,1 @@
+import{S as e,i as t,p as n,s as r,t as i}from"./index-FMqcXwCq.js";var a={class:`step`},o={class:`marker`},s=i({__name:`StepItem`,props:{index:Number,text:String},setup(i){return(s,c)=>(n(),r(`div`,a,[t(`div`,o,[t(`span`,null,e(i.index),1)]),t(`p`,null,e(i.text),1)]))}},[[`__scopeId`,`data-v-f9c4599c`]]);export{s as t};
