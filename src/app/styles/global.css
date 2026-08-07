@@ -1,0 +1,93 @@
+@import './tokens.css';
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--f-body);
+  color: var(--c-ink);
+  background: var(--c-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--f-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+a { color: inherit; }
+
+button { font-family: inherit; }
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Dimension-line eyebrow — the signature structural device.
+   Used above section headings, like a callout on a blueprint. */
+.dim-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 14px;
+}
+.dim-eyebrow::before {
+  content: '';
+  width: 22px;
+  height: 1px;
+  background: var(--c-accent);
+}
+.dim-eyebrow::after {
+  content: '';
+  width: 22px;
+  height: 1px;
+  background: var(--c-accent);
+}
+
+.section-head {
+  max-width: 640px;
+  margin: 0 auto 44px;
+  text-align: center;
+}
+.section-head h2 {
+  font-size: clamp(26px, 3.4vw, 38px);
+  color: var(--c-ink);
+}
+.section-head p {
+  margin-top: 12px;
+  color: var(--c-ink-soft);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+section { padding: 88px 0; }
+
+@media (max-width: 768px) {
+  section { padding: 56px 0; }
+}
+
+/* Reveal-on-scroll base state, toggled by useReveal composable */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--dur-m) var(--ease-out), transform var(--dur-m) var(--ease-out);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
