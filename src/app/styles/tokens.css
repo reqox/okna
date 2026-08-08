@@ -1,34 +1,21 @@
-/*
-  Design concept: "Чертёж мастера" (the master's blueprint).
-  The brand's real differentiator in the brief is precision — laser levels,
-  free measurement callouts, GOST-compliant installs, humidity checks.
-  So the visual system borrows the vocabulary of a technical window
-  drawing: dimension lines, tick marks, mm/cm callouts, hairline grids —
-  rendered warm rather than clinical, with a Krasnodar-sun copper accent
-  cutting through cool glass-blue.
-*/
-
 :root {
-  /* Color */
-  --c-bg: #F4F7F8;          /* cool glass-tinted paper */
-  --c-surface: #FFFFFF;
-  --c-ink: #10222E;         /* deep frame-blue-black */
-  --c-ink-soft: #4A5D68;
-  --c-primary: #1B4B66;     /* steel/glass teal-blue */
+  --c-bg: #f4f7f8;
+  --c-surface: #ffffff;
+  --c-ink: #10222e;
+  --c-ink-soft: #4a5d68;
+  --c-primary: #1b4b66;
   --c-primary-dark: #123245;
-  --c-accent: #E07C2E;      /* copper / Krasnodar sun */
-  --c-accent-soft: #F5A55B;
-  --c-frost: #9FC7D1;       /* light glass reflection */
-  --c-line: #D7E0E3;        /* hairline / dimension-line grey */
-  --c-line-strong: #B9C7CC;
-  --c-success: #2E8B57;
+  --c-accent: #e07c2e;
+  --c-accent-soft: #f5a55b;
+  --c-frost: #9fc7d1;
+  --c-line: #d7e0e3;
+  --c-line-strong: #b9c7cc;
+  --c-success: #2e8b57;
 
-  /* Type */
   --f-display: 'Unbounded', system-ui, sans-serif;
   --f-body: 'Manrope', system-ui, sans-serif;
   --f-mono: 'JetBrains Mono', ui-monospace, monospace;
 
-  /* Layout */
   --radius-s: 8px;
   --radius-m: 14px;
   --radius-l: 24px;
@@ -36,9 +23,8 @@
   --shadow-card: 0 6px 24px rgba(16, 34, 46, 0.07);
   --shadow-card-hover: 0 16px 40px rgba(16, 34, 46, 0.13);
 
-  /* Motion */
-  --ease-out: cubic-bezier(.16,.84,.44,1);
-  --dur-s: .25s;
-  --dur-m: .5s;
-  --dur-l: .9s;
+  --ease-out: cubic-bezier(0.16, 0.84, 0.44, 1);
+  --dur-s: 0.25s;
+  --dur-m: 0.5s;
+  --dur-l: 0.9s;
 }
