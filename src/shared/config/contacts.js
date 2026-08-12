@@ -2,8 +2,8 @@ export const contacts = {
   phone: '+7 (961) 728-99-89',
   phoneHref: 'tel:+79617289989',
   city: 'г. Краснодар',
-  whatsapp: 'https://google.com',
-  telegram: 'https://google.com',
+  whatsapp: 'https://wa.me/79617289989',
+  telegram: 'https://t.me/+79617289989',
 };
 
 export const navPages = [
