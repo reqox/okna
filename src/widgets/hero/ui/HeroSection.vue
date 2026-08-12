@@ -1,13 +1,13 @@
 <script setup>
-import BlueprintDiagram from '../../../shared/ui/BlueprintDiagram.vue'
+import BlueprintDiagram from '../../../shared/ui/BlueprintDiagram.vue';
 
 defineProps({
   eyebrow: String,
   title: String,
   subtitle: String,
   variant: { type: String, default: 'window' },
-  tone: { type: String, default: 'glass' } // glass | amber | mint
-})
+  tone: { type: String, default: 'glass' }, // glass | amber | mint
+});
 </script>
 
 <template>
@@ -35,9 +35,15 @@ defineProps({
   overflow: hidden;
   position: relative;
 }
-.hero.glass { background: linear-gradient(160deg, #E9F2F4 0%, var(--c-bg) 62%); }
-.hero.amber { background: linear-gradient(160deg, #FBF0E3 0%, var(--c-bg) 62%); }
-.hero.mint { background: linear-gradient(160deg, #E7F3EE 0%, var(--c-bg) 62%); }
+.hero.glass {
+  background: linear-gradient(160deg, #e9f2f4 0%, var(--c-bg) 62%);
+}
+.hero.amber {
+  background: linear-gradient(160deg, #fbf0e3 0%, var(--c-bg) 62%);
+}
+.hero.mint {
+  background: linear-gradient(160deg, #e7f3ee 0%, var(--c-bg) 62%);
+}
 
 .hero-grid {
   display: grid;
@@ -50,14 +56,14 @@ defineProps({
   font-size: clamp(30px, 4.2vw, 48px);
   color: var(--c-ink);
   margin-bottom: 18px;
-  animation: rise .7s var(--ease-out) both;
+  animation: rise 0.7s var(--ease-out) both;
 }
 .subtitle {
   font-size: 18px;
   line-height: 1.6;
   color: var(--c-ink-soft);
   max-width: 52ch;
-  animation: rise .7s var(--ease-out) .1s both;
+  animation: rise 0.7s var(--ease-out) 0.1s both;
 }
 .hero-actions {
   margin-top: 30px;
@@ -65,35 +71,63 @@ defineProps({
   flex-wrap: wrap;
   gap: 14px;
   align-items: center;
-  animation: rise .7s var(--ease-out) .2s both;
+  animation: rise 0.7s var(--ease-out) 0.2s both;
 }
 .note {
   margin-top: 14px;
   font-size: 13.5px;
   color: var(--c-ink-soft);
   font-family: var(--f-mono);
-  animation: rise .7s var(--ease-out) .28s both;
+  animation: rise 0.7s var(--ease-out) 0.28s both;
 }
 
 .hero-visual {
-  animation: fadeIn .9s ease .15s both;
+  animation: fadeIn 0.9s ease 0.15s both;
 }
 
 @keyframes rise {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-visual { order: -1; max-width: 340px; margin: 0 auto; }
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-visual {
+    order: -1;
+    max-width: 340px;
+    margin: 0 auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-copy h1, .subtitle, .hero-actions, .note, .hero-visual { animation: none; }
+  .hero-copy h1,
+  .subtitle,
+  .hero-actions,
+  .note,
+  .hero-visual {
+    animation: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-copy h1 {
+    font-size: 24px;
+  }
 }
 </style>
