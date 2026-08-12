@@ -47,7 +47,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
             stroke-width="2"
           />
         </svg>
-        <span>МастерСервис</span>
+        <p>МастерСервис</p>
       </router-link>
 
       <nav class="nav" :class="{ open: menuOpen }">
@@ -61,35 +61,40 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
           >{{ p.label }}</router-link
         >
       </nav>
-
-      <div class="contacts">
-        <a :href="contacts.phoneHref" class="phone">{{ contacts.phone }}</a>
-        <div class="social">
-          <a
-            :href="contacts.whatsapp"
-            class="social-btn wa"
-            aria-label="WhatsApp"
-          >
-            <whatsapp-icon />
-          </a>
-          <a
-            :href="contacts.telegram"
-            class="social-btn tg"
-            aria-label="Telegram"
-          >
-            <telegram-icon />
-          </a>
+      <div class="actions">
+        <div class="contacts">
+          <a :href="contacts.phoneHref" class="phone">{{ contacts.phone }}</a>
+          <div class="social">
+            <a
+              :href="contacts.whatsapp"
+              target="_blank"
+              rel="noopener"
+              class="social-btn wa"
+              aria-label="WhatsApp"
+            >
+              <whatsapp-icon />
+            </a>
+            <a
+              :href="contacts.telegram"
+              target="_blank"
+              rel="noopener"
+              class="social-btn tg"
+              aria-label="Telegram"
+            >
+              <telegram-icon />
+            </a>
+          </div>
         </div>
-      </div>
 
-      <button
-        class="burger"
-        @click="menuOpen = !menuOpen"
-        :aria-expanded="menuOpen"
-        aria-label="Меню"
-      >
-        <span></span><span></span><span></span>
-      </button>
+        <button
+          class="burger"
+          @click="menuOpen = !menuOpen"
+          :aria-expanded="menuOpen"
+          aria-label="Меню"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 </template>
@@ -166,6 +171,12 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
   background: var(--c-primary);
 }
 
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
 .contacts {
   display: flex;
   align-items: center;
@@ -191,11 +202,13 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
   border-radius: 50%;
   text-decoration: none;
   transition: transform var(--dur-s);
+}
+.social-btn svg {
+  width: 34px;
+  height: 34px;
 }
 .social-btn:hover {
   transform: scale(1.12);
@@ -217,7 +230,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
   border-radius: 2px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .contacts .phone {
     display: none;
   }
@@ -246,6 +259,26 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
   }
   .burger {
     display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    gap: 6px;
+  }
+  .logo-mark {
+    width: 26px;
+    height: 26px;
+  }
+  .logo p {
+    font-size: 14px;
+  }
+  .actions {
+    gap: 6px;
+  }
+  .social-btn svg {
+    width: 26px;
+    height: 26px;
   }
 }
 </style>
