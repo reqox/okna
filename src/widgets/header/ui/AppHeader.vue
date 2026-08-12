@@ -2,6 +2,8 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { contacts, navPages } from '../../../shared/config/contacts.js';
+import TelegramIcon from './Icons/TelegramIcon.vue';
+import WhatsappIcon from './Icons/WhatsappIcon.vue';
 
 const route = useRoute();
 const scrolled = ref(false);
@@ -67,14 +69,16 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
             :href="contacts.whatsapp"
             class="social-btn wa"
             aria-label="WhatsApp"
-            >💬</a
           >
+            <whatsapp-icon />
+          </a>
           <a
             :href="contacts.telegram"
             class="social-btn tg"
             aria-label="Telegram"
-            >✈️</a
           >
+            <telegram-icon />
+          </a>
         </div>
       </div>
 
@@ -184,21 +188,14 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
   gap: 8px;
 }
 .social-btn {
-  width: 34px;
-  height: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   text-decoration: none;
-  font-size: 16px;
   transition: transform var(--dur-s);
-}
-.social-btn.wa {
-  background: #25d366;
-}
-.social-btn.tg {
-  background: #0088cc;
 }
 .social-btn:hover {
   transform: scale(1.12);
