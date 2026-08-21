@@ -1,31 +1,30 @@
-import { onMounted, onBeforeUnmount, ref } from 'vue'
+import { onMounted, onBeforeUnmount, ref } from 'vue';
 
-/**
- * Attaches an IntersectionObserver to the returned ref's element and
- * adds `is-visible` once it scrolls into view. Pair with the `.reveal`
- * base class in global.css.
- */
 export function useReveal(options = {}) {
-  const target = ref(null)
-  let observer
+  const target = ref(null);
+  let observer;
 
   onMounted(() => {
-    if (!target.value) return
+    const el = target.value;
+    if (!el) return;
+
     observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
-            observer.unobserve(entry.target)
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          } else {
+            entry.target.classList.add('is-ready');
           }
-        })
+        });
       },
-      { threshold: 0.15, rootMargin: '0px 0px -60px 0px', ...options }
-    )
-    observer.observe(target.value)
-  })
+      { threshold: 0, rootMargin: '0px', ...options },
+    );
+    observer.observe(el);
+  });
 
-  onBeforeUnmount(() => observer && observer.disconnect())
+  onBeforeUnmount(() => observer && observer.disconnect());
 
-  return target
+  return target;
 }

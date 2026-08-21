@@ -95,11 +95,13 @@ section {
 
 /* Reveal-on-scroll base state, toggled by useReveal composable */
 .reveal {
-  opacity: 0;
-  transform: translateY(28px);
   transition:
     opacity var(--dur-m) var(--ease-out),
     transform var(--dur-m) var(--ease-out);
+}
+.reveal.is-ready:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(28px);
 }
 .reveal.is-visible {
   opacity: 1;
@@ -107,7 +109,8 @@ section {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  .reveal,
+  .reveal.is-ready:not(.is-visible) {
     opacity: 1;
     transform: none;
     transition: none;
