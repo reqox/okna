@@ -1,12 +1,5 @@
 <template>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    aria-label="Telegram"
-    role="img"
-    viewBox="0 0 512 512"
-    :width="size"
-    :height="size"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 512 512" :width="size" :height="size">
     <rect width="512" height="512" rx="15%" fill="#37aee2" />
     <path fill="#c8daea" d="M199 404c-11 0-10-4-13-14l-32-105 245-144" />
     <path fill="#a9c9dd" d="M199 404c7 0 11-4 16-8l45-43-56-34" />

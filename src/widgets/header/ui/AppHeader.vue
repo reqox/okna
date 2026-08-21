@@ -50,10 +50,22 @@ function onLogoClick() {
         <div class="contacts">
           <a :href="contacts.phoneHref" class="phone">{{ contacts.phone }}</a>
           <div class="social">
-            <a :href="contacts.whatsapp" target="_blank" rel="noopener" class="social-btn wa" aria-label="WhatsApp">
+            <a
+              :href="contacts.whatsapp"
+              target="_blank"
+              rel="noopener"
+              class="social-btn wa"
+              aria-label="Ссылка на WhatsApp"
+            >
               <whatsapp-icon />
             </a>
-            <a :href="contacts.telegram" target="_blank" rel="noopener" class="social-btn tg" aria-label="Telegram">
+            <a
+              :href="contacts.telegram"
+              target="_blank"
+              rel="noopener"
+              class="social-btn tg"
+              aria-label="Ссылка на Telegram"
+            >
               <telegram-icon />
             </a>
           </div>

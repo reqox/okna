@@ -92,7 +92,7 @@
 
 ### 2.5 Соцсети: одно имя на ссылку
 
-- [ ] Убрать двойное объявление WhatsApp / Telegram.
+- [x] Убрать двойное объявление WhatsApp / Telegram.
 
 **Файлы:** [`src/widgets/header/ui/AppHeader.vue`](../../src/widgets/header/ui/AppHeader.vue) строки 68–84 (`aria-label` на `<a>`); [`src/widgets/header/ui/Icons/WhatsappIcon.vue`](../../src/widgets/header/ui/Icons/WhatsappIcon.vue) строки 4–5; [`src/widgets/header/ui/Icons/TelegramIcon.vue`](../../src/widgets/header/ui/Icons/TelegramIcon.vue) строки 4–5.
 
