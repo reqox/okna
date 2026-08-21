@@ -12,7 +12,7 @@ const menuOpen = ref(false);
 function onScroll() {
   scrolled.value = window.scrollY > 12;
 }
-onMounted(() => window.addEventListener('scroll', onScroll));
+onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }));
 onUnmounted(() => window.removeEventListener('scroll', onScroll));
 </script>
 
@@ -21,31 +21,9 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
     <div class="container bar">
       <router-link to="/" class="logo" @click="menuOpen = false">
         <svg class="logo-mark" viewBox="0 0 28 28" fill="none">
-          <rect
-            x="2"
-            y="2"
-            width="24"
-            height="24"
-            rx="3"
-            stroke="currentColor"
-            stroke-width="2"
-          />
-          <line
-            x1="14"
-            y1="2"
-            x2="14"
-            y2="26"
-            stroke="var(--c-accent)"
-            stroke-width="2"
-          />
-          <line
-            x1="2"
-            y1="14"
-            x2="26"
-            y2="14"
-            stroke="var(--c-accent)"
-            stroke-width="2"
-          />
+          <rect x="2" y="2" width="24" height="24" rx="3" stroke="currentColor" stroke-width="2" />
+          <line x1="14" y1="2" x2="14" y2="26" stroke="var(--c-accent)" stroke-width="2" />
+          <line x1="2" y1="14" x2="26" y2="14" stroke="var(--c-accent)" stroke-width="2" />
         </svg>
         <p>МастерСервис</p>
       </router-link>
@@ -65,33 +43,16 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
         <div class="contacts">
           <a :href="contacts.phoneHref" class="phone">{{ contacts.phone }}</a>
           <div class="social">
-            <a
-              :href="contacts.whatsapp"
-              target="_blank"
-              rel="noopener"
-              class="social-btn wa"
-              aria-label="WhatsApp"
-            >
+            <a :href="contacts.whatsapp" target="_blank" rel="noopener" class="social-btn wa" aria-label="WhatsApp">
               <whatsapp-icon />
             </a>
-            <a
-              :href="contacts.telegram"
-              target="_blank"
-              rel="noopener"
-              class="social-btn tg"
-              aria-label="Telegram"
-            >
+            <a :href="contacts.telegram" target="_blank" rel="noopener" class="social-btn tg" aria-label="Telegram">
               <telegram-icon />
             </a>
           </div>
         </div>
 
-        <button
-          class="burger"
-          @click="menuOpen = !menuOpen"
-          :aria-expanded="menuOpen"
-          aria-label="Меню"
-        >
+        <button class="burger" @click="menuOpen = !menuOpen" :aria-expanded="menuOpen" aria-label="Меню">
           <span></span><span></span><span></span>
         </button>
       </div>

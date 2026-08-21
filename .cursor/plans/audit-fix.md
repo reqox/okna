@@ -34,7 +34,7 @@
 
 ### 1.4 Скролл хедера
 
-- [ ] Passive-слушатель и начальное состояние.
+- [x] Passive-слушатель и начальное состояние.
 
 **Файл:** [`src/widgets/header/ui/AppHeader.vue`](../../src/widgets/header/ui/AppHeader.vue) строки 12–16.
 
