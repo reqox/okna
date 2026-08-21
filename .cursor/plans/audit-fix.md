@@ -56,29 +56,13 @@
 
 **Сделать:** на потолках и окнах title не должен оставаться про стеклопакеты.
 
-### 1.7 `base` и gh-pages
-
-- [ ] Проверить, что `base` совпадает с URL деплоя.
-
-**Файлы:** [`vite.config.js`](../../vite.config.js) строка 7 (`base: '/'`); [`package.json`](../../package.json) скрипт `deploy`.
-
-**Сделать:** если сайт не в корне домена — поправить `base`. Если в корне — ничего не менять.
-
-### 1.8 Якоря под липким хедером
-
-- [ ] Секции `#types` / `#services` не должны уезжать под шапку.
-
-**Файлы:** [`src/app/styles/global.css`](../../src/app/styles/global.css) (`html` / `section`); [`src/pages/glass/ui/GlassPage.vue`](../../src/pages/glass/ui/GlassPage.vue) (`id="types"`); [`src/pages/ceiling/ui/CeilingPage.vue`](../../src/pages/ceiling/ui/CeilingPage.vue) (`id="services"`).
-
-**Сделать:** `scroll-padding-top` на `html` или `scroll-margin-top` на целевых `section` под высоту sticky-хедера.
-
 ---
 
 ## Волна 2. Доступность (a11y)
 
 ### 2.1 FAQ: клавиатура и ARIA
 
-- [ ] Вопрос — кнопка, состояние и панель связаны.
+- [x] Вопрос — кнопка, состояние и панель связаны.
 
 **Файл:** [`src/entities/faq/ui/FaqItem.vue`](../../src/entities/faq/ui/FaqItem.vue) строки 7–16.
 
