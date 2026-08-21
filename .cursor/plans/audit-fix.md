@@ -86,7 +86,7 @@
 
 ### 2.4 Декоративные SVG без лишних имён
 
-- [ ] Логотип, футер, blueprint — `aria-hidden="true"`.
+- [x] Логотип, футер, blueprint — `aria-hidden="true"`.
 
 **Файлы:** [`src/widgets/header/ui/AppHeader.vue`](../../src/widgets/header/ui/AppHeader.vue) (логотип), [`src/widgets/footer/ui/AppFooter.vue`](../../src/widgets/footer/ui/AppFooter.vue), [`src/shared/ui/BlueprintDiagram.vue`](../../src/shared/ui/BlueprintDiagram.vue).
 
