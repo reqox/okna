@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router';
 import { contacts, navPages } from '../../../shared/config/contacts.js';
 import TelegramIcon from './Icons/TelegramIcon.vue';
 import WhatsappIcon from './Icons/WhatsappIcon.vue';
+import { SCROLL_KEY } from '../../../app/providers/router.js';
 
 const route = useRoute();
 const scrolled = ref(false);
@@ -14,12 +15,18 @@ function onScroll() {
 }
 onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }));
 onUnmounted(() => window.removeEventListener('scroll', onScroll));
+
+function onLogoClick() {
+  menuOpen.value = false;
+  sessionStorage.setItem(SCROLL_KEY, String(0));
+  window.scrollTo({ top: 0 });
+}
 </script>
 
 <template>
-  <header class="header" :class="{ scrolled }">
+  <header id="header" class="header" :class="{ scrolled }">
     <div class="container bar">
-      <router-link to="/" class="logo" @click="menuOpen = false">
+      <router-link to="/" class="logo" @click="onLogoClick">
         <svg class="logo-mark" viewBox="0 0 28 28" fill="none">
           <rect x="2" y="2" width="24" height="24" rx="3" stroke="currentColor" stroke-width="2" />
           <line x1="14" y1="2" x2="14" y2="26" stroke="var(--c-accent)" stroke-width="2" />

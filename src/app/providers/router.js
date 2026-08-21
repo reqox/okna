@@ -16,7 +16,7 @@ export const routes = [
   },
 ];
 
-const SCROLL_KEY = 'okna:scrollY';
+export const SCROLL_KEY = 'okna:scrollY';
 
 function saveScrollY() {
   const scrollY = window.scrollY;
@@ -48,6 +48,6 @@ export const routerOptions = {
       return { left: 0, top: restoreScrollY() };
     }
 
-    return false;
+    return { left: 0, top: 0 };
   },
 };
