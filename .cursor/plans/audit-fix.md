@@ -42,7 +42,7 @@
 
 ### 1.5 Smooth scroll и reduced motion в роутере
 
-- [ ] JS-скролл не должен игнорировать `prefers-reduced-motion`.
+- [x] JS-скролл не должен игнорировать `prefers-reduced-motion`.
 
 **Файл:** [`src/app/providers/router.js`](../../src/app/providers/router.js) строка 22 (`behavior: 'smooth'`).
 
