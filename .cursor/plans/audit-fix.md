@@ -142,7 +142,7 @@
 
 ### 3.4 Неиспользуемый токен `--dur-l`
 
-- [ ] Удалить из [`src/app/styles/tokens.css`](../../src/app/styles/tokens.css) строка 31, если так и не понадобился.
+- [x] Удалить из [`src/app/styles/tokens.css`](../../src/app/styles/tokens.css) строка 31, если так и не понадобился.
 
 Не трогать: `prefers-reduced-motion` в hero / blueprint / page-transition — уже сделано. Кнопку `AppButton` как `button` не выкидывать «потому что сейчас везде `as="a"`».
 
