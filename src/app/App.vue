@@ -20,11 +20,13 @@ useHead({
 <template>
   <div class="app">
     <AppHeader />
-    <router-view v-slot="{ Component, route }">
-      <transition name="page" mode="out-in">
-        <component :is="Component" :key="route.path" />
-      </transition>
-    </router-view>
+    <main>
+      <router-view v-slot="{ Component, route }">
+        <transition name="page" mode="out-in">
+          <component :is="Component" :key="route.path" />
+        </transition>
+      </router-view>
+    </main>
   </div>
 </template>
 
