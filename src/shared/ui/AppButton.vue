@@ -2,8 +2,8 @@
 defineProps({
   as: { type: String, default: 'button' },
   href: { type: String, default: null },
-  variant: { type: String, default: 'primary' } // primary | ghost
-})
+  variant: { type: String, default: 'primary' }, // primary | ghost
+});
 </script>
 
 <template>
@@ -31,7 +31,9 @@ defineProps({
   cursor: pointer;
   text-decoration: none;
   overflow: hidden;
-  transition: transform var(--dur-s) var(--ease-out), box-shadow var(--dur-s) var(--ease-out);
+  transition:
+    transform var(--dur-s) var(--ease-out),
+    box-shadow var(--dur-s) var(--ease-out);
 }
 
 .app-btn.primary {
