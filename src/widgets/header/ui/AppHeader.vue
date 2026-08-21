@@ -179,16 +179,18 @@ function onLogoClick() {
   gap: 8px;
 }
 .social-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
   text-decoration: none;
   transition: transform var(--dur-s);
+  width: 44px;
+  height: 44px;
 }
 .social-btn svg {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
+  border-radius: 15%;
 }
 .social-btn:hover {
   transform: scale(1.12);
@@ -197,14 +199,16 @@ function onLogoClick() {
 .burger {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  justify-content: space-between;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 6px;
+  padding: 12px 6px;
+  width: 44px;
+  height: 44px;
 }
 .burger span {
-  width: 22px;
+  width: 100%;
   height: 2px;
   background: var(--c-primary);
   border-radius: 2px;
@@ -256,9 +260,12 @@ function onLogoClick() {
   .actions {
     gap: 6px;
   }
+  .social-btn {
+    width: clamp(1.5rem, 0rem + 7.5vi, 2.25rem);
+  }
   .social-btn svg {
-    width: 26px;
-    height: 26px;
+    width: clamp(1.5rem, 0rem + 7.5vi, 2.25rem);
+    height: clamp(1.5rem, 0rem + 7.5vi, 2.25rem);
   }
 }
 </style>
