@@ -1,5 +1,6 @@
 <script setup>
 import AppHeader from '../widgets/header/ui/AppHeader.vue';
+import AppFooter from '../widgets/footer/ui/AppFooter.vue';
 import { useHead } from '@unhead/vue';
 import { useRoute } from 'vue-router';
 import { computed } from 'vue';
@@ -27,6 +28,7 @@ useHead({
         </transition>
       </router-view>
     </main>
+    <AppFooter />
   </div>
 </template>
 
@@ -35,6 +37,10 @@ useHead({
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 .page-enter-active,

@@ -1,7 +1,6 @@
 <script setup>
 import HeroSection from '../../../widgets/hero/ui/HeroSection.vue'
 import CtaBlock from '../../../widgets/cta-block/ui/CtaBlock.vue'
-import AppFooter from '../../../widgets/footer/ui/AppFooter.vue'
 import AppButton from '../../../shared/ui/AppButton.vue'
 import SectionTitle from '../../../shared/ui/SectionTitle.vue'
 import RevealItem from '../../../shared/ui/RevealItem.vue'
@@ -104,11 +103,6 @@ import { glassTypes, glassAdvantages, glassBonuses, glassSteps, glassFaq } from 
     <CtaBlock
       title="Не разобрались в характеристиках? Просто позвоните!"
       text="Я, Алексей, лично проконсультирую и подберу лучший вариант под ваш бюджет."
-    />
-
-    <AppFooter
-      title="СтеклоПакетПро — изготовление стеклопакетов с 2010 года"
-      :lines="['ИНН 1234567890 / ОГРН 1234567890123', 'Часы работы: пн–пт 9:00–20:00, сб 10:00–16:00']"
     />
   </div>
 </template>

@@ -1,8 +1,5 @@
 <script setup>
-defineProps({
-  title: { type: String, required: true },
-  lines: { type: Array, default: () => [] },
-});
+import { contacts } from '../../../shared/config/contacts.js';
 </script>
 
 <template>
@@ -14,10 +11,11 @@ defineProps({
           <line x1="14" y1="2" x2="14" y2="26" stroke="var(--c-accent)" stroke-width="2" />
           <line x1="2" y1="14" x2="26" y2="14" stroke="var(--c-accent)" stroke-width="2" />
         </svg>
-        <h3>{{ title }}</h3>
+        <h3>{{ contacts.brand }}</h3>
       </div>
       <div class="footer-lines">
-        <p v-for="(l, i) in lines" :key="i">{{ l }}</p>
+        <p>{{ contacts.workHours }}</p>
+        <a :href="contacts.privacyPolicyUrl">Политика конфиденциальности</a>
       </div>
     </div>
   </footer>
@@ -52,9 +50,19 @@ defineProps({
 .footer-lines {
   text-align: right;
 }
-.footer-lines p {
+.footer-lines p,
+.footer-lines a {
   font-size: 13.5px;
   line-height: 1.7;
+}
+.footer-lines a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.footer-lines a:hover {
+  text-decoration: underline;
+  color: #fff;
 }
 @media (max-width: 600px) {
   .footer-inner {

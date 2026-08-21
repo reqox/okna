@@ -32,7 +32,7 @@ function onLogoClick() {
           <line x1="14" y1="2" x2="14" y2="26" stroke="var(--c-accent)" stroke-width="2" />
           <line x1="2" y1="14" x2="26" y2="14" stroke="var(--c-accent)" stroke-width="2" />
         </svg>
-        <p>МастерСервис</p>
+        <p>{{ contacts.brand }}</p>
       </router-link>
 
       <nav class="nav" :class="{ open: menuOpen }">

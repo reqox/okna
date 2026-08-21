@@ -1,7 +1,6 @@
 <script setup>
 import HeroSection from '../../../widgets/hero/ui/HeroSection.vue'
 import CtaBlock from '../../../widgets/cta-block/ui/CtaBlock.vue'
-import AppFooter from '../../../widgets/footer/ui/AppFooter.vue'
 import AppButton from '../../../shared/ui/AppButton.vue'
 import SectionTitle from '../../../shared/ui/SectionTitle.vue'
 import RevealItem from '../../../shared/ui/RevealItem.vue'
@@ -74,11 +73,6 @@ import { ceilingServices, ceilingAdvantages, ceilingSteps, ceilingWhyUs } from '
     <CtaBlock
       title="Ещё не определились в выборе? Просто позвоните!"
       text="Я, Алексей, лично проконсультирую и подберу лучший вариант под ваш бюджет."
-    />
-
-    <AppFooter
-      title="МастерПотолков"
-      :lines="['© 2026 МастерПотолков. Все права защищены.', 'Политика конфиденциальности']"
     />
   </div>
 </template>

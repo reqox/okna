@@ -1,7 +1,6 @@
 <script setup>
 import HeroSection from '../../../widgets/hero/ui/HeroSection.vue'
 import CtaBlock from '../../../widgets/cta-block/ui/CtaBlock.vue'
-import AppFooter from '../../../widgets/footer/ui/AppFooter.vue'
 import AppButton from '../../../shared/ui/AppButton.vue'
 import SectionTitle from '../../../shared/ui/SectionTitle.vue'
 import RevealItem from '../../../shared/ui/RevealItem.vue'
@@ -108,7 +107,6 @@ import {
         <span>🎁 Бесплатную проверку тепловизором — увидите все мостики холода на экране.</span>
         <span>🎁 Скидку 10% на комплексную профилактику при подписании абонемента на год.</span>
       </template>
-      <template #meta>Режим работы: ежедневно 8:00–21:00 (выезд в выходные)</template>
     </CtaBlock>
 
     <section class="checklist">
@@ -123,10 +121,6 @@ import {
       </div>
     </section>
 
-    <AppFooter
-      title="Оконный сервис Краснодар"
-      :lines="['© 2026 Все права защищены.', 'Политика конфиденциальности']"
-    />
   </div>
 </template>
 
