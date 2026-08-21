@@ -36,6 +36,7 @@ if (typeof window !== 'undefined') {
   window.addEventListener('beforeunload', saveScrollY);
 }
 
+let hasBeenRestored = false;
 export const routerOptions = {
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) return savedPosition;
@@ -44,7 +45,8 @@ export const routerOptions = {
         el: to.hash,
         behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
       };
-    if (typeof window !== 'undefined' && isReload()) {
+    if (typeof window !== 'undefined' && isReload() && !hasBeenRestored) {
+      hasBeenRestored = true;
       return { left: 0, top: restoreScrollY() };
     }
 
