@@ -50,7 +50,7 @@
 
 ### 1.6 Title страниц
 
-- [ ] Свой `document.title` (и при необходимости description) на `/`, `/ceiling`, `/windows`.
+- [x] Свой `document.title` (и при необходимости description) на `/`, `/ceiling`, `/windows`.
 
 **Файлы:** [`index.html`](../../index.html) строка 6; страницы в `src/pages/*/ui/` или хук в роутере / vite-ssg head.
 
