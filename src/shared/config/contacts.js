@@ -1,7 +1,7 @@
 export const contacts = {
   brand: 'МастерСервис',
   workHours: 'Часы работы: пн-пт 9:00-20:00, сб 10:00-16:00',
-  privacyPolicyUrl: '#',
+  privacyPolicyUrl: '/docs/privacy.pdf',
   phone: '+7 (961) 728-99-89',
   phoneHref: 'tel:+79617289989',
   city: 'г. Краснодар',
