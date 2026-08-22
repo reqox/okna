@@ -175,8 +175,9 @@ function onKeydown(e) {
   padding: 8px 8px 20px;
   border-radius: var(--radius-l);
 
-  scrollbar-width: none;
+  scrollbar-width: thin;
   -ms-overflow-style: none;
+  scrollbar-color: var(--c-accent-soft) transparent;
 }
 
 .slider-list:focus-visible {
@@ -186,12 +187,6 @@ function onKeydown(e) {
 
 .slider-list::-webkit-scrollbar {
   height: 0;
-}
-
-.slider-list:hover,
-.slider-list:focus-within {
-  scrollbar-width: thin;
-  scrollbar-color: var(--c-accent-soft) transparent;
 }
 
 .slider-list:hover::-webkit-scrollbar,

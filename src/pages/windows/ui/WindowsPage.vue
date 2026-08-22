@@ -1,25 +1,30 @@
 <script setup>
-import HeroSection from '../../../widgets/hero/ui/HeroSection.vue'
-import CtaBlock from '../../../widgets/cta-block/ui/CtaBlock.vue'
-import AppButton from '../../../shared/ui/AppButton.vue'
-import SectionTitle from '../../../shared/ui/SectionTitle.vue'
-import RevealItem from '../../../shared/ui/RevealItem.vue'
-import ServiceCard from '../../../entities/service/ui/ServiceCard.vue'
-import PackageCard from '../../../entities/package/ui/PackageCard.vue'
-import DiagnosticCard from '../../../entities/diagnostic/ui/DiagnosticCard.vue'
-import FaqItem from '../../../entities/faq/ui/FaqItem.vue'
-import Slider from '../../../widgets/slider/ui/Slider.vue'
-import { contacts } from '../../../shared/config/contacts.js'
-import { loadImages } from '../../../shared/lib/loadImages.js'
+import HeroSection from '../../../widgets/hero/ui/HeroSection.vue';
+import CtaBlock from '../../../widgets/cta-block/ui/CtaBlock.vue';
+import AppButton from '../../../shared/ui/AppButton.vue';
+import SectionTitle from '../../../shared/ui/SectionTitle.vue';
+import RevealItem from '../../../shared/ui/RevealItem.vue';
+import ServiceCard from '../../../entities/service/ui/ServiceCard.vue';
+import PackageCard from '../../../entities/package/ui/PackageCard.vue';
+import DiagnosticCard from '../../../entities/diagnostic/ui/DiagnosticCard.vue';
+import FaqItem from '../../../entities/faq/ui/FaqItem.vue';
+import Slider from '../../../widgets/slider/ui/Slider.vue';
+import { contacts } from '../../../shared/config/contacts.js';
+import { loadImages } from '../../../shared/lib/loadImages.js';
 import {
-  windowServices, windowPackages, windowDiagnostics,
-  windowPrevention, windowAdvantages, windowFaq, checklist
-} from '../model/data.js'
+  windowServices,
+  windowPackages,
+  windowDiagnostics,
+  windowPrevention,
+  windowAdvantages,
+  windowFaq,
+  checklist,
+} from '../model/data.js';
 
 const galleryImages = loadImages(
   import.meta.glob('../assets/*.{png,jpg,jpeg,webp,avif}', { eager: true }),
   'Окна ПВХ — примеры выполненных работ',
-)
+);
 </script>
 
 <template>
@@ -37,12 +42,7 @@ const galleryImages = loadImages(
       <template #note>Если мы не заключим договор — диагностика платная. Честность в деталях.</template>
     </HeroSection>
 
-    <Slider
-      title="Наши работы"
-      eyebrow="Портфолио"
-      text="Можно листать свайпом влево/вправо"
-      :images="galleryImages"
-    />
+    <!-- <Slider title="Наши работы" eyebrow="Портфолио" text="Можно листать свайпом влево/вправо" :images="galleryImages" /> -->
 
     <section class="services">
       <div class="container">
@@ -57,21 +57,30 @@ const galleryImages = loadImages(
 
     <section class="packages">
       <div class="container">
-        <SectionTitle eyebrow="Тарифы" title="Установка окон и дверей — 3 пакета на выбор" text="Мы не навязываем дорогое. Выбирайте под задачу." />
+        <SectionTitle
+          eyebrow="Тарифы"
+          title="Установка окон и дверей — 3 пакета на выбор"
+          text="Мы не навязываем дорогое. Выбирайте под задачу."
+        />
         <div class="grid-3">
           <RevealItem v-for="(p, i) in windowPackages" :key="p.name" :delay="i * 90">
             <PackageCard :name="p.name" :desc="p.desc" :badge="p.badge" :featured="p.featured" />
           </RevealItem>
         </div>
         <RevealItem tag="div" class="warning">
-          <strong>Важно:</strong> После монтажа мы проводим контрольный замер влажности в помещении. Если окно «плачет» по нашей вине — переделываем за свой счёт. Это закреплено в договоре.
+          <strong>Важно:</strong> После монтажа мы проводим контрольный замер влажности в помещении. Если окно «плачет»
+          по нашей вине — переделываем за свой счёт. Это закреплено в договоре.
         </RevealItem>
       </div>
     </section>
 
     <section class="diagnostics">
       <div class="container">
-        <SectionTitle eyebrow="90% проблем решаем без замены" title="Диагностика узлов и ремонт" text="Мы не чиним «вслепую». Проводим поузловую диагностику, чтобы найти корень зла." />
+        <SectionTitle
+          eyebrow="90% проблем решаем без замены"
+          title="Диагностика узлов и ремонт"
+          text="Мы не чиним «вслепую». Проводим поузловую диагностику, чтобы найти корень зла."
+        />
         <div class="grid-2">
           <RevealItem v-for="(d, i) in windowDiagnostics" :key="d.title" :delay="i * 70">
             <DiagnosticCard :title="d.title" :symptoms="d.symptoms" :services="d.services" />
@@ -82,13 +91,20 @@ const galleryImages = loadImages(
 
     <section class="prevention">
       <div class="container">
-        <SectionTitle eyebrow="Продлеваем жизнь окнам в 2 раза" title="Профилактика" text="90% поломок происходят из-за отсутствия ТО. Предлагаем годовой абонемент." />
+        <SectionTitle
+          eyebrow="Продлеваем жизнь окнам в 2 раза"
+          title="Профилактика"
+          text="90% поломок происходят из-за отсутствия ТО. Предлагаем годовой абонемент."
+        />
         <div class="prevention-list">
           <RevealItem v-for="(p, i) in windowPrevention" :key="p" :delay="i * 70" tag="div" class="prevention-item">
-            <span class="dim-num">{{ i + 1 }}</span><p>{{ p }}</p>
+            <span class="dim-num">{{ i + 1 }}</span>
+            <p>{{ p }}</p>
           </RevealItem>
         </div>
-        <RevealItem tag="p" class="result">Результат: окно будет открываться плавно, как у европейцев, 10+ лет без серьёзных ремонтов.</RevealItem>
+        <RevealItem tag="p" class="result"
+          >Результат: окно будет открываться плавно, как у европейцев, 10+ лет без серьёзных ремонтов.</RevealItem
+        >
       </div>
     </section>
 
@@ -97,7 +113,8 @@ const galleryImages = loadImages(
         <SectionTitle eyebrow="Инженерный подход" title="Почему выбирают нас" />
         <div class="grid-list">
           <RevealItem v-for="(a, i) in windowAdvantages" :key="a" :delay="i * 60" tag="div" class="adv-line">
-            <span class="mark">•</span><p>{{ a }}</p>
+            <span class="mark">•</span>
+            <p>{{ a }}</p>
           </RevealItem>
         </div>
       </div>
@@ -114,9 +131,7 @@ const galleryImages = loadImages(
       </div>
     </section>
 
-    <CtaBlock
-      title="Закажите выезд мастера-диагноста уже сегодня"
-    >
+    <CtaBlock title="Закажите выезд мастера-диагноста уже сегодня">
       <template #offers>
         <span>🎁 Бесплатную проверку тепловизором — увидите все мостики холода на экране.</span>
         <span>🎁 Скидку 10% на комплексную профилактику при подписании абонемента на год.</span>
@@ -125,41 +140,64 @@ const galleryImages = loadImages(
 
     <section class="checklist">
       <div class="container">
-        <SectionTitle eyebrow="Доверие" title="Чек-лист для самостоятельной проверки окна" text="Не уверены, пора ли вызывать мастера? Пришлите нам в WhatsApp фото этих мест:" />
+        <SectionTitle
+          eyebrow="Доверие"
+          title="Чек-лист для самостоятельной проверки окна"
+          text="Не уверены, пора ли вызывать мастера? Пришлите нам в WhatsApp фото этих мест:"
+        />
         <div class="check-grid">
           <RevealItem v-for="(c, i) in checklist" :key="c" :delay="i * 90" tag="div" class="check-item">
-            <span class="dim-num">{{ i + 1 }}</span><p>{{ c }}</p>
+            <span class="dim-num">{{ i + 1 }}</span>
+            <p>{{ c }}</p>
           </RevealItem>
         </div>
         <p class="check-note">Мы бесплатно оценим снимки и скажем, срочная ли это поломка или плановое ТО.</p>
       </div>
     </section>
-
   </div>
 </template>
 
 <style scoped>
-.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; }
-.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 22px; margin-bottom: 26px; }
-.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 22px;
+  margin-bottom: 26px;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
 
 .warning {
-  background: #FDF1DE;
+  background: #fdf1de;
   border-left: 4px solid var(--c-accent);
   padding: 18px 24px;
   border-radius: var(--radius-s);
-  color: #7A4B0F;
+  color: #7a4b0f;
   line-height: 1.6;
   max-width: 900px;
   margin: 0 auto;
 }
 
 .prevention-list {
-  display: flex; flex-direction: column; gap: 10px;
-  max-width: 720px; margin: 0 auto 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 720px;
+  margin: 0 auto 22px;
 }
-.prevention-item, .check-item {
-  display: flex; align-items: center; gap: 14px;
+.prevention-item,
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   background: var(--c-surface);
   border: 1px solid var(--c-line);
   border-radius: var(--radius-s);
@@ -180,9 +218,16 @@ const galleryImages = loadImages(
   font-weight: 600;
 }
 
-.grid-list { display: flex; flex-direction: column; gap: 12px; max-width: 800px; margin: 0 auto; }
+.grid-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+}
 .adv-line {
-  display: flex; gap: 12px;
+  display: flex;
+  gap: 12px;
   background: var(--c-surface);
   border: 1px solid var(--c-line);
   border-radius: var(--radius-s);
@@ -190,10 +235,30 @@ const galleryImages = loadImages(
   color: var(--c-ink-soft);
   line-height: 1.6;
 }
-.adv-line .mark { color: var(--c-accent); font-weight: 700; }
+.adv-line .mark {
+  color: var(--c-accent);
+  font-weight: 700;
+}
 
-.faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 
-.check-grid { display: flex; flex-direction: column; gap: 10px; max-width: 640px; margin: 0 auto; }
-.check-note { text-align: center; margin-top: 18px; color: var(--c-accent); font-weight: 600; }
+.check-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.check-note {
+  text-align: center;
+  margin-top: 18px;
+  color: var(--c-accent);
+  font-weight: 600;
+}
 </style>

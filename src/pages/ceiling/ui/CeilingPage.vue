@@ -1,20 +1,20 @@
 <script setup>
-import HeroSection from '../../../widgets/hero/ui/HeroSection.vue'
-import CtaBlock from '../../../widgets/cta-block/ui/CtaBlock.vue'
-import AppButton from '../../../shared/ui/AppButton.vue'
-import SectionTitle from '../../../shared/ui/SectionTitle.vue'
-import RevealItem from '../../../shared/ui/RevealItem.vue'
-import ServiceCard from '../../../entities/service/ui/ServiceCard.vue'
-import StepItem from '../../../entities/step/ui/StepItem.vue'
-import Slider from '../../../widgets/slider/ui/Slider.vue'
-import { contacts } from '../../../shared/config/contacts.js'
-import { loadImages } from '../../../shared/lib/loadImages.js'
-import { ceilingServices, ceilingAdvantages, ceilingSteps, ceilingWhyUs } from '../model/data.js'
+import HeroSection from '../../../widgets/hero/ui/HeroSection.vue';
+import CtaBlock from '../../../widgets/cta-block/ui/CtaBlock.vue';
+import AppButton from '../../../shared/ui/AppButton.vue';
+import SectionTitle from '../../../shared/ui/SectionTitle.vue';
+import RevealItem from '../../../shared/ui/RevealItem.vue';
+import ServiceCard from '../../../entities/service/ui/ServiceCard.vue';
+import StepItem from '../../../entities/step/ui/StepItem.vue';
+import Slider from '../../../widgets/slider/ui/Slider.vue';
+import { contacts } from '../../../shared/config/contacts.js';
+import { loadImages } from '../../../shared/lib/loadImages.js';
+import { ceilingServices, ceilingAdvantages, ceilingSteps, ceilingWhyUs } from '../model/data.js';
 
 const galleryImages = loadImages(
   import.meta.glob('../assets/*.{png,jpg,jpeg,webp,avif}', { eager: true }),
-  'Натяжные потолки — примеры выполненных работ',
-)
+  'Натяжные потолки — пример выполненной работы',
+);
 </script>
 
 <template>
@@ -33,12 +33,7 @@ const galleryImages = loadImages(
       <template #note>Выезд на замер бесплатно</template>
     </HeroSection>
 
-    <Slider
-      title="Наши работы"
-      eyebrow="Портфолио"
-      text="Можно листать свайпом влево/вправо"
-      :images="galleryImages"
-    />
+    <Slider title="Наши работы" eyebrow="Портфолио" text="Можно листать свайпом влево/вправо" :images="galleryImages" />
 
     <section id="services" class="services">
       <div class="container">
@@ -92,10 +87,22 @@ const galleryImages = loadImages(
 </template>
 
 <style scoped>
-.grid-6 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; }
-.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 22px; }
+.grid-6 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 22px;
+}
 
-.chip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+.chip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
 .chip {
   background: var(--c-surface);
   border: 1px solid var(--c-line);
@@ -103,9 +110,21 @@ const galleryImages = loadImages(
   padding: 20px 22px;
   font-size: 15px;
   color: var(--c-ink);
-  transition: transform var(--dur-s) var(--ease-out), box-shadow var(--dur-s);
+  transition:
+    transform var(--dur-s) var(--ease-out),
+    box-shadow var(--dur-s);
 }
-.chip:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
-.why-chip { display: flex; align-items: flex-start; gap: 10px; }
-.mark { color: var(--c-accent); font-weight: 700; }
+.chip:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+.why-chip {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.mark {
+  color: var(--c-accent);
+  font-weight: 700;
+}
 </style>
