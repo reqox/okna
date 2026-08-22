@@ -10,6 +10,7 @@ import StepItem from '../../../entities/step/ui/StepItem.vue';
 import FaqItem from '../../../entities/faq/ui/FaqItem.vue';
 import { contacts } from '../../../shared/config/contacts.js';
 import { glassTypes, glassAdvantages, glassBonuses, glassSteps, glassFaq } from '../model/data.js';
+import Slider from '../../../widgets/slider/ui/Slider.vue';
 </script>
 
 <template>
@@ -27,6 +28,8 @@ import { glassTypes, glassAdvantages, glassBonuses, glassSteps, glassFaq } from 
       </template>
       <template #note>Выезд замерщика — бесплатно при заказе</template>
     </HeroSection>
+
+    <Slider />
 
     <section class="about">
       <div class="container about-grid">
