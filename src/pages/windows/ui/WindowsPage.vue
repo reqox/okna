@@ -42,8 +42,6 @@ const galleryImages = loadImages(
       <template #note>Если мы не заключим договор — диагностика платная. Честность в деталях.</template>
     </HeroSection>
 
-    <!-- <Slider title="Наши работы" eyebrow="Портфолио" text="Можно листать свайпом влево/вправо" :images="galleryImages" /> -->
-
     <section class="services">
       <div class="container">
         <SectionTitle eyebrow="Главное меню" title="Наши услуги" />
@@ -119,6 +117,8 @@ const galleryImages = loadImages(
         </div>
       </div>
     </section>
+
+    <Slider title="Наши работы" eyebrow="Портфолио" text="Можно листать свайпом влево/вправо" :images="galleryImages" />
 
     <section class="faq">
       <div class="container">
