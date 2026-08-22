@@ -12,6 +12,7 @@ import { contacts } from '../../../shared/config/contacts.js';
 import { glassTypes, glassAdvantages, glassBonuses, glassSteps, glassFaq } from '../model/data.js';
 import Slider from '../../../widgets/slider/ui/Slider.vue';
 import { loadImages } from '../../../shared/lib/loadImages.js';
+import alexImage from './img/alexey.jpeg';
 
 const galleryImages = loadImages(
   import.meta.glob('../assets/*.{png,jpg,jpeg,webp,avif}', { eager: true }),
@@ -35,12 +36,10 @@ const galleryImages = loadImages(
       <template #note>Выезд замерщика — бесплатно при заказе</template>
     </HeroSection>
 
-    <Slider title="Наши работы" eyebrow="Портфолио" text="Можно листать свайпом влево/вправо" :images="galleryImages" />
-
     <section class="about">
       <div class="container about-grid">
         <RevealItem class="about-portrait">
-          <img class="portrait" src="" alt="Фотография Алексея" width="366" height="366" />
+          <img class="portrait" :src="alexImage" alt="Фотография Алексея" width="366" height="366" />
         </RevealItem>
         <RevealItem :delay="100" class="about-copy">
           <div class="dim-eyebrow">О мастере</div>
@@ -57,6 +56,8 @@ const galleryImages = loadImages(
         </RevealItem>
       </div>
     </section>
+
+    <Slider title="Наши работы" eyebrow="Портфолио" text="Можно листать свайпом влево/вправо" :images="galleryImages" />
 
     <section id="types" class="types">
       <div class="container">
