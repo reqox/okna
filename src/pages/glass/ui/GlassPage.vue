@@ -137,10 +137,11 @@ const galleryImages = loadImages(
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 1;
   border-radius: var(--radius-l);
   background: linear-gradient(135deg, #fbe3ce, #f5a55b);
   box-shadow: var(--shadow-card);
+  width: 360px;
+  height: auto;
 }
 .about-copy h2 {
   font-size: clamp(24px, 3vw, 32px);
@@ -214,9 +215,11 @@ const galleryImages = loadImages(
   .about-grid {
     grid-template-columns: 1fr;
   }
+}
+@media (max-width: 480px) {
   .portrait {
-    max-width: 220px;
-    margin: 0 auto;
+    width: 100%;
+    height: auto;
   }
 }
 </style>
