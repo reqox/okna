@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { contacts, navPages } from '../../../shared/config/contacts.js';
 import TelegramIcon from './Icons/TelegramIcon.vue';
@@ -17,12 +17,59 @@ const emit = defineEmits(['update:menuOpen']);
 
 const route = useRoute();
 const scrolled = ref(false);
+const headerEl = ref(null);
+const isNarrow = ref(false);
+const navInert = computed(() => isNarrow.value && !props.menuOpen);
+const chromeInert = computed(() => isNarrow.value && props.menuOpen);
+let mq;
 
 function onScroll() {
   scrolled.value = window.scrollY > 12;
 }
-onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }));
-onUnmounted(() => window.removeEventListener('scroll', onScroll));
+
+function syncMq() {
+  isNarrow.value = mq.matches;
+}
+
+function onTabKey(e) {
+  if (e.key === 'Escape' && props.menuOpen) {
+    setMenuOpen(false);
+    nextTick(() => headerEl.value?.querySelector('.burger')?.focus());
+    return;
+  }
+  if (e.key !== 'Tab' || !props.menuOpen || !isNarrow.value) return;
+  const ae = document.activeElement;
+  const first = headerEl.value?.querySelector('.nav-link');
+  const burger = headerEl.value?.querySelector('.burger');
+  if (!e.shiftKey && ae === burger) {
+    e.preventDefault();
+    first?.focus();
+  } else if (e.shiftKey && ae === first) {
+    e.preventDefault();
+    burger?.focus();
+  }
+}
+
+onMounted(() => {
+  mq = window.matchMedia('(max-width: 1024px)');
+  syncMq();
+  mq.addEventListener('change', syncMq);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('keydown', onTabKey, true);
+});
+onUnmounted(() => {
+  mq?.removeEventListener('change', syncMq);
+  window.removeEventListener('scroll', onScroll);
+  window.removeEventListener('keydown', onTabKey, true);
+});
+
+watch(
+  () => props.menuOpen,
+  (open) => {
+    if (!open || !isNarrow.value) return;
+    nextTick(() => headerEl.value?.querySelector('.nav-link')?.focus());
+  },
+);
 
 function setMenuOpen(val) {
   emit('update:menuOpen', val);
@@ -36,9 +83,9 @@ function onLogoClick() {
 </script>
 
 <template>
-  <header id="header" class="header" :class="{ scrolled }">
+  <header id="header" ref="headerEl" class="header" :class="{ scrolled }">
     <div class="container bar">
-      <router-link to="/" class="logo" @click="onLogoClick">
+      <router-link to="/" class="logo" :inert="chromeInert || undefined" @click="onLogoClick">
         <svg aria-hidden="true" class="logo-mark" viewBox="0 0 28 28" fill="none">
           <rect x="2" y="2" width="24" height="24" rx="3" stroke="currentColor" stroke-width="2" />
           <line x1="14" y1="2" x2="14" y2="26" stroke="var(--c-accent)" stroke-width="2" />
@@ -47,10 +94,11 @@ function onLogoClick() {
         <p>{{ contacts.brand }}</p>
       </router-link>
 
-      <nav id="nav-menu" class="nav" :class="{ open: menuOpen }">
+      <nav id="nav-menu" class="nav" :class="{ open: menuOpen }" :inert="navInert || undefined">
         <ul>
           <li v-for="p in navPages" :key="p.path">
             <router-link
+              :aria-label="p.label"
               :to="p.path"
               class="nav-link"
               :class="{ active: route.path === p.path }"
@@ -61,7 +109,7 @@ function onLogoClick() {
         </ul>
       </nav>
       <div class="actions">
-        <div class="contacts">
+        <div class="contacts" :inert="chromeInert || undefined">
           <a :href="contacts.phoneHref" class="phone">{{ contacts.phone }}</a>
           <div class="social">
             <a
@@ -175,6 +223,20 @@ function onLogoClick() {
 .nav-link.active {
   color: #fff;
   background: var(--c-primary);
+}
+.nav-link:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+}
+.nav-link.active:focus-visible {
+  outline-color: #fff;
+}
+.logo:focus-visible,
+.phone:focus-visible,
+.social-btn:focus-visible,
+.burger:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
 }
 
 .actions {
