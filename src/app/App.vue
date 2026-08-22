@@ -3,7 +3,7 @@ import AppHeader from '../widgets/header/ui/AppHeader.vue';
 import AppFooter from '../widgets/footer/ui/AppFooter.vue';
 import { useHead } from '@unhead/vue';
 import { useRoute } from 'vue-router';
-import { computed } from 'vue';
+import { ref, computed } from 'vue';
 
 const route = useRoute();
 
@@ -16,19 +16,21 @@ useHead({
     },
   ],
 });
+
+const menuOpen = ref(false);
 </script>
 
 <template>
   <div class="app">
-    <AppHeader />
-    <main>
+    <AppHeader v-model:menu-open="menuOpen" />
+    <main :inert="menuOpen || undefined">
       <router-view v-slot="{ Component, route }">
         <transition name="page" mode="out-in">
           <component :is="Component" :key="route.path" />
         </transition>
       </router-view>
     </main>
-    <AppFooter />
+    <AppFooter :inert="menuOpen || undefined" />
   </div>
 </template>
 

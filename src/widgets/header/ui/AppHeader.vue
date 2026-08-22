@@ -5,10 +5,18 @@ import { contacts, navPages } from '../../../shared/config/contacts.js';
 import TelegramIcon from './Icons/TelegramIcon.vue';
 import WhatsappIcon from './Icons/WhatsappIcon.vue';
 import { SCROLL_KEY } from '../../../app/providers/router.js';
+import { defineProps, defineEmits } from 'vue';
+
+const props = defineProps({
+  menuOpen: {
+    type: Boolean,
+    required: true,
+  },
+});
+const emit = defineEmits(['update:menuOpen']);
 
 const route = useRoute();
 const scrolled = ref(false);
-const menuOpen = ref(false);
 
 function onScroll() {
   scrolled.value = window.scrollY > 12;
@@ -16,8 +24,12 @@ function onScroll() {
 onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }));
 onUnmounted(() => window.removeEventListener('scroll', onScroll));
 
+function setMenuOpen(val) {
+  emit('update:menuOpen', val);
+}
+
 function onLogoClick() {
-  menuOpen.value = false;
+  setMenuOpen(false);
   sessionStorage.setItem(SCROLL_KEY, String(0));
   window.scrollTo({ top: 0 });
 }
@@ -35,14 +47,14 @@ function onLogoClick() {
         <p>{{ contacts.brand }}</p>
       </router-link>
 
-      <nav class="nav" :class="{ open: menuOpen }">
+      <nav id="nav-menu" class="nav" :class="{ open: menuOpen }">
         <router-link
           v-for="p in navPages"
           :key="p.path"
           :to="p.path"
           class="nav-link"
           :class="{ active: route.path === p.path }"
-          @click="menuOpen = false"
+          @click="setMenuOpen(false)"
           >{{ p.label }}</router-link
         >
       </nav>
@@ -71,7 +83,13 @@ function onLogoClick() {
           </div>
         </div>
 
-        <button class="burger" @click="menuOpen = !menuOpen" :aria-expanded="menuOpen" aria-label="Меню">
+        <button
+          aria-controls="nav-menu"
+          class="burger"
+          @click="setMenuOpen(!menuOpen)"
+          :aria-expanded="menuOpen"
+          aria-label="Меню"
+        >
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -225,6 +243,7 @@ function onLogoClick() {
     background: var(--c-surface);
     padding: 10px 20px 20px;
     transform: translateY(-12px);
+    visibility: hidden;
     opacity: 0;
     pointer-events: none;
     transition:
@@ -233,6 +252,7 @@ function onLogoClick() {
     border-bottom: 1px solid var(--c-line);
   }
   .nav.open {
+    visibility: visible;
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
