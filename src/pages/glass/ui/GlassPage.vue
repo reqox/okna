@@ -57,8 +57,8 @@ import { glassTypes, glassAdvantages, glassBonuses, glassSteps, glassFaq } from 
           text="Изготавливаем под любые задачи — от дачи до панорамного остекления"
         />
         <div class="grid-7">
-          <RevealItem v-for="(t, i) in glassTypes" :key="t.name" :delay="i * 60">
-            <ServiceCard :icon="t.icon" :name="t.name" :desc="t.desc" />
+          <RevealItem tag="ul" v-for="(t, i) in glassTypes" :key="t.name" :delay="i * 60">
+            <ServiceCard tag="li" :icon="t.icon" :name="t.name" :desc="t.desc" />
           </RevealItem>
         </div>
       </div>
@@ -159,7 +159,7 @@ import { glassTypes, glassAdvantages, glassBonuses, glassSteps, glassFaq } from 
   gap: 22px;
 }
 .grid-7 {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 .grid-4 {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
