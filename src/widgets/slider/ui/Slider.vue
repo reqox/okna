@@ -2,7 +2,7 @@
 import { ref, reactive } from 'vue';
 
 const props = defineProps({
-  eyebrow: { type: String, default: '' },
+  eyebrow: { type: String, default: 'Портфолио' },
   title: { type: String, default: '' },
   text: { type: String, default: '' },
   images: {

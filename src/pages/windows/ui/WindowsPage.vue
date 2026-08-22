@@ -8,11 +8,18 @@ import ServiceCard from '../../../entities/service/ui/ServiceCard.vue'
 import PackageCard from '../../../entities/package/ui/PackageCard.vue'
 import DiagnosticCard from '../../../entities/diagnostic/ui/DiagnosticCard.vue'
 import FaqItem from '../../../entities/faq/ui/FaqItem.vue'
+import Slider from '../../../widgets/slider/ui/Slider.vue'
 import { contacts } from '../../../shared/config/contacts.js'
+import { loadImages } from '../../../shared/lib/loadImages.js'
 import {
   windowServices, windowPackages, windowDiagnostics,
   windowPrevention, windowAdvantages, windowFaq, checklist
 } from '../model/data.js'
+
+const galleryImages = loadImages(
+  import.meta.glob('../assets/*.{png,jpg,jpeg,webp,avif}', { eager: true }),
+  'Окна ПВХ — примеры выполненных работ',
+)
 </script>
 
 <template>
@@ -29,6 +36,13 @@ import {
       </template>
       <template #note>Если мы не заключим договор — диагностика платная. Честность в деталях.</template>
     </HeroSection>
+
+    <Slider
+      title="Наши работы"
+      eyebrow="Портфолио"
+      text="Можно листать свайпом влево/вправо"
+      :images="galleryImages"
+    />
 
     <section class="services">
       <div class="container">

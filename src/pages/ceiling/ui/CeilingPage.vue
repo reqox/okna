@@ -6,8 +6,15 @@ import SectionTitle from '../../../shared/ui/SectionTitle.vue'
 import RevealItem from '../../../shared/ui/RevealItem.vue'
 import ServiceCard from '../../../entities/service/ui/ServiceCard.vue'
 import StepItem from '../../../entities/step/ui/StepItem.vue'
+import Slider from '../../../widgets/slider/ui/Slider.vue'
 import { contacts } from '../../../shared/config/contacts.js'
+import { loadImages } from '../../../shared/lib/loadImages.js'
 import { ceilingServices, ceilingAdvantages, ceilingSteps, ceilingWhyUs } from '../model/data.js'
+
+const galleryImages = loadImages(
+  import.meta.glob('../assets/*.{png,jpg,jpeg,webp,avif}', { eager: true }),
+  'Натяжные потолки — примеры выполненных работ',
+)
 </script>
 
 <template>
@@ -25,6 +32,13 @@ import { ceilingServices, ceilingAdvantages, ceilingSteps, ceilingWhyUs } from '
       </template>
       <template #note>Выезд на замер бесплатно</template>
     </HeroSection>
+
+    <Slider
+      title="Наши работы"
+      eyebrow="Портфолио"
+      text="Можно листать свайпом влево/вправо"
+      :images="galleryImages"
+    />
 
     <section id="services" class="services">
       <div class="container">
