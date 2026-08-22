@@ -11,6 +11,9 @@ import FaqItem from '../../../entities/faq/ui/FaqItem.vue';
 import { contacts } from '../../../shared/config/contacts.js';
 import { glassTypes, glassAdvantages, glassBonuses, glassSteps, glassFaq } from '../model/data.js';
 import Slider from '../../../widgets/slider/ui/Slider.vue';
+import image from '../assets/image.png';
+
+const array = [{ src: image, alt: 'gisngsign isgsin igsng isgins ingisngi sin g' }];
 </script>
 
 <template>
@@ -29,7 +32,7 @@ import Slider from '../../../widgets/slider/ui/Slider.vue';
       <template #note>Выезд замерщика — бесплатно при заказе</template>
     </HeroSection>
 
-    <Slider />
+    <Slider title="Стеклопакеты" eyebrow="Портфолио" text="Можно листать свайпом влево/вправо" :images="array" />
 
     <section class="about">
       <div class="container about-grid">
