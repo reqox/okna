@@ -48,15 +48,17 @@ function onLogoClick() {
       </router-link>
 
       <nav id="nav-menu" class="nav" :class="{ open: menuOpen }">
-        <router-link
-          v-for="p in navPages"
-          :key="p.path"
-          :to="p.path"
-          class="nav-link"
-          :class="{ active: route.path === p.path }"
-          @click="setMenuOpen(false)"
-          >{{ p.label }}</router-link
-        >
+        <ul>
+          <li v-for="p in navPages" :key="p.path">
+            <router-link
+              :to="p.path"
+              class="nav-link"
+              :class="{ active: route.path === p.path }"
+              @click="setMenuOpen(false)"
+              >{{ p.label }}</router-link
+            >
+          </li>
+        </ul>
       </nav>
       <div class="actions">
         <div class="contacts">
@@ -142,9 +144,15 @@ function onLogoClick() {
 
 .nav {
   display: flex;
-  gap: 4px;
   flex: 1;
   justify-content: center;
+}
+.nav ul {
+  display: flex;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .nav-link {
@@ -257,7 +265,12 @@ function onLogoClick() {
     transform: translateY(0);
     pointer-events: auto;
   }
+  .nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
   .nav-link {
+    display: block;
     text-align: center;
     padding: 12px;
   }
