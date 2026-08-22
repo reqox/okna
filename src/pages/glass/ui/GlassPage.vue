@@ -1,15 +1,15 @@
 <script setup>
-import HeroSection from '../../../widgets/hero/ui/HeroSection.vue'
-import CtaBlock from '../../../widgets/cta-block/ui/CtaBlock.vue'
-import AppButton from '../../../shared/ui/AppButton.vue'
-import SectionTitle from '../../../shared/ui/SectionTitle.vue'
-import RevealItem from '../../../shared/ui/RevealItem.vue'
-import ServiceCard from '../../../entities/service/ui/ServiceCard.vue'
-import AdvantageCard from '../../../entities/advantage/ui/AdvantageCard.vue'
-import StepItem from '../../../entities/step/ui/StepItem.vue'
-import FaqItem from '../../../entities/faq/ui/FaqItem.vue'
-import { contacts } from '../../../shared/config/contacts.js'
-import { glassTypes, glassAdvantages, glassBonuses, glassSteps, glassFaq } from '../model/data.js'
+import HeroSection from '../../../widgets/hero/ui/HeroSection.vue';
+import CtaBlock from '../../../widgets/cta-block/ui/CtaBlock.vue';
+import AppButton from '../../../shared/ui/AppButton.vue';
+import SectionTitle from '../../../shared/ui/SectionTitle.vue';
+import RevealItem from '../../../shared/ui/RevealItem.vue';
+import ServiceCard from '../../../entities/service/ui/ServiceCard.vue';
+import AdvantageCard from '../../../entities/advantage/ui/AdvantageCard.vue';
+import StepItem from '../../../entities/step/ui/StepItem.vue';
+import FaqItem from '../../../entities/faq/ui/FaqItem.vue';
+import { contacts } from '../../../shared/config/contacts.js';
+import { glassTypes, glassAdvantages, glassBonuses, glassSteps, glassFaq } from '../model/data.js';
 </script>
 
 <template>
@@ -31,15 +31,19 @@ import { glassTypes, glassAdvantages, glassBonuses, glassSteps, glassFaq } from 
     <section class="about">
       <div class="container about-grid">
         <RevealItem class="about-portrait">
-          <div class="portrait">
-            <span>👨‍🔧</span>
-          </div>
+          <img class="portrait" src="" alt="Фотография Алексея" width="366" height="366" />
         </RevealItem>
         <RevealItem :delay="100" class="about-copy">
           <div class="dim-eyebrow">О мастере</div>
           <h2>Приветствую! Меня зовут Алексей.</h2>
-          <p>С 2010 года я профессионально занимаюсь производством и установкой стеклопакетов. Работаю с любым уровнем сложности и любой формой окна — от стандартных прямоугольных до арочных и треугольных.</p>
-          <p><strong>Работаю без посредников</strong> — собственное производство, которое позволяет мне контролировать каждый этап: от раскроя стекла до финальной герметизации.</p>
+          <p>
+            С 2010 года я профессионально занимаюсь производством и установкой стеклопакетов. Работаю с любым уровнем
+            сложности и любой формой окна — от стандартных прямоугольных до арочных и треугольных.
+          </p>
+          <p>
+            <strong>Работаю без посредников</strong> — собственное производство, которое позволяет мне контролировать
+            каждый этап: от раскроя стекла до финальной герметизации.
+          </p>
           <div class="badge">✅ Гарантия от 12 месяцев</div>
         </RevealItem>
       </div>
@@ -47,7 +51,11 @@ import { glassTypes, glassAdvantages, glassBonuses, glassSteps, glassFaq } from 
 
     <section id="types" class="types">
       <div class="container">
-        <SectionTitle eyebrow="Каталог" title="Виды стеклопакетов" text="Изготавливаем под любые задачи — от дачи до панорамного остекления" />
+        <SectionTitle
+          eyebrow="Каталог"
+          title="Виды стеклопакетов"
+          text="Изготавливаем под любые задачи — от дачи до панорамного остекления"
+        />
         <div class="grid-7">
           <RevealItem v-for="(t, i) in glassTypes" :key="t.name" :delay="i * 60">
             <ServiceCard :icon="t.icon" :name="t.name" :desc="t.desc" />
@@ -72,7 +80,8 @@ import { glassTypes, glassAdvantages, glassBonuses, glassSteps, glassFaq } from 
         <SectionTitle eyebrow="В подарок" title="Бесплатно для клиентов" />
         <div class="bonus-list">
           <RevealItem v-for="(b, i) in glassBonuses" :key="b" :delay="i * 80" tag="div" class="bonus-item">
-            <span>🎁</span><p>{{ b }}</p>
+            <span>🎁</span>
+            <p>{{ b }}</p>
           </RevealItem>
         </div>
       </div>
@@ -115,15 +124,23 @@ import { glassTypes, glassAdvantages, glassBonuses, glassSteps, glassFaq } from 
   align-items: center;
 }
 .portrait {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   aspect-ratio: 1;
   border-radius: var(--radius-l);
-  background: linear-gradient(135deg, #FBE3CE, #F5A55B);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 88px;
+  background: linear-gradient(135deg, #fbe3ce, #f5a55b);
   box-shadow: var(--shadow-card);
 }
-.about-copy h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 16px; }
-.about-copy p { color: var(--c-ink-soft); line-height: 1.75; margin-bottom: 12px; }
+.about-copy h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  margin-bottom: 16px;
+}
+.about-copy p {
+  color: var(--c-ink-soft);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
 .badge {
   display: inline-block;
   margin-top: 6px;
@@ -135,32 +152,61 @@ import { glassTypes, glassAdvantages, glassBonuses, glassSteps, glassFaq } from 
   font-size: 14.5px;
 }
 
-.grid-7, .grid-4, .grid-6 {
+.grid-7,
+.grid-4,
+.grid-6 {
   display: grid;
   gap: 22px;
 }
-.grid-7 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-.grid-4 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-.grid-6 { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+.grid-7 {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.grid-6 {
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
 
 .bonus-list {
-  display: flex; flex-direction: column; gap: 12px;
-  max-width: 720px; margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 720px;
+  margin: 0 auto;
 }
 .bonus-item {
   background: var(--c-surface);
   border: 1px solid var(--c-line);
   border-radius: var(--radius-m);
   padding: 18px 26px;
-  display: flex; align-items: center; gap: 18px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
 }
-.bonus-item span { font-size: 26px; }
-.bonus-item p { font-size: 15.5px; color: var(--c-ink); }
+.bonus-item span {
+  font-size: 26px;
+}
+.bonus-item p {
+  font-size: 15.5px;
+  color: var(--c-ink);
+}
 
-.faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 
 @media (max-width: 800px) {
-  .about-grid { grid-template-columns: 1fr; }
-  .portrait { max-width: 220px; margin: 0 auto; }
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .portrait {
+    max-width: 220px;
+    margin: 0 auto;
+  }
 }
 </style>
