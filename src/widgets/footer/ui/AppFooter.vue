@@ -15,7 +15,7 @@ import { contacts } from '../../../shared/config/contacts.js';
       </div>
       <div class="footer-lines">
         <p>{{ contacts.workHours }}</p>
-        <a :href="contacts.privacyPolicyUrl">Политика конфиденциальности</a>
+        <!-- <a :href="contacts.privacyPolicyUrl">Политика конфиденциальности</a> -->
       </div>
     </div>
   </footer>
